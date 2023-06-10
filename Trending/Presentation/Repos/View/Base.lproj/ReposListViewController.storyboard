@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ReposListViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="ReposListViewController" id="BYZ-38-t0r" customClass="ReposListViewController" customModule="Trending" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Dr-U0-L8q">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="55e-n4-tNW"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="J6Z-kL-yQA"/>
+                                </connections>
+                            </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2j-gJ-gU2">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Fdc-wk-mNd" customClass="LottieAnimationView" customModule="Lottie">
+                                        <rect key="frame" x="20" y="19.999999999999972" width="353" height="498.33333333333326"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading_error"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4O-oZ-M8i">
+                                        <rect key="frame" x="20" y="538.33333333333337" width="353" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An alien is probably blocking your signal." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQR-bk-cBh">
+                                        <rect key="frame" x="20" y="578.66666666666663" width="353" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="primaryTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to8-TK-Ru0">
+                                        <rect key="frame" x="20" y="699" width="353" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="6yg-Fz-TtZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="RETRY" cornerStyle="dynamic">
+                                            <backgroundConfiguration key="background" cornerRadius="5">
+                                                <color key="strokeColor" systemColor="systemGreenColor"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="retryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XBW-Gi-fi1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="to8-TK-Ru0" firstAttribute="leading" secondItem="Fdc-wk-mNd" secondAttribute="leading" id="7JE-hb-ZaO"/>
+                                    <constraint firstItem="RQR-bk-cBh" firstAttribute="leading" secondItem="Fdc-wk-mNd" secondAttribute="leading" id="P23-rV-4Mn"/>
+                                    <constraint firstItem="Fdc-wk-mNd" firstAttribute="top" secondItem="o2j-gJ-gU2" secondAttribute="top" constant="20" symbolic="YES" id="QOI-AN-OYE"/>
+                                    <constraint firstAttribute="bottom" secondItem="to8-TK-Ru0" secondAttribute="bottom" constant="20" symbolic="YES" id="TpM-cz-Kug"/>
+                                    <constraint firstItem="v4O-oZ-M8i" firstAttribute="top" secondItem="Fdc-wk-mNd" secondAttribute="bottom" constant="20" id="Xjq-mn-Q41"/>
+                                    <constraint firstItem="RQR-bk-cBh" firstAttribute="top" secondItem="v4O-oZ-M8i" secondAttribute="bottom" constant="20" id="gNl-KQ-A6P"/>
+                                    <constraint firstItem="Fdc-wk-mNd" firstAttribute="leading" secondItem="o2j-gJ-gU2" secondAttribute="leading" constant="20" symbolic="YES" id="mtp-lp-19v"/>
+                                    <constraint firstItem="to8-TK-Ru0" firstAttribute="trailing" secondItem="Fdc-wk-mNd" secondAttribute="trailing" id="pI8-Xa-7KD"/>
+                                    <constraint firstItem="to8-TK-Ru0" firstAttribute="top" secondItem="RQR-bk-cBh" secondAttribute="bottom" constant="100" id="poa-fx-WBh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fdc-wk-mNd" secondAttribute="trailing" constant="20" symbolic="YES" id="rq4-Oz-Kyn"/>
+                                    <constraint firstItem="RQR-bk-cBh" firstAttribute="trailing" secondItem="Fdc-wk-mNd" secondAttribute="trailing" id="urj-Ji-srj"/>
+                                    <constraint firstItem="v4O-oZ-M8i" firstAttribute="trailing" secondItem="Fdc-wk-mNd" secondAttribute="trailing" id="wRt-rC-pln"/>
+                                    <constraint firstItem="v4O-oZ-M8i" firstAttribute="leading" secondItem="Fdc-wk-mNd" secondAttribute="leading" id="yqk-aJ-M1K"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="tintColor"/>
+                        <constraints>
+                            <constraint firstItem="2Dr-U0-L8q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BjZ-V3-GPf"/>
+                            <constraint firstItem="o2j-gJ-gU2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Oif-WO-MVY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Dr-U0-L8q" secondAttribute="trailing" id="XcX-IE-mpM"/>
+                            <constraint firstItem="o2j-gJ-gU2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aVA-cP-bHN"/>
+                            <constraint firstItem="2Dr-U0-L8q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c8c-xX-FZi"/>
+                            <constraint firstItem="o2j-gJ-gU2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lIL-TP-1gA"/>
+                            <constraint firstItem="o2j-gJ-gU2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tNf-b2-Cfz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Dr-U0-L8q" secondAttribute="bottom" id="ywd-UJ-iGm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trending" id="0oQ-CU-s8n">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="three_dots" id="FpK-Ct-QL2">
+                            <color key="tintColor" name="forground"/>
+                            <connections>
+                                <action selector="retryAction:" destination="BYZ-38-t0r" id="LZW-xz-WAy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="animationView" destination="Fdc-wk-mNd" id="LGF-Hy-Iz2"/>
+                        <outlet property="loadingErrorView" destination="o2j-gJ-gU2" id="Fsd-HQ-T1D"/>
+                        <outlet property="trendTableView" destination="2Dr-U0-L8q" id="Nwe-Rp-2kf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1903.0534351145038" y="-2.8169014084507045"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="three_dots" width="22" height="22"/>
+        <namedColor name="forground">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryTextColor">
+            <color red="0.44697504708097924" green="0.44985875706214684" blue="0.44985875706214684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

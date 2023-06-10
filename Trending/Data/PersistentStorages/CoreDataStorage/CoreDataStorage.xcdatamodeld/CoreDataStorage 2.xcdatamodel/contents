@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RepoQueryEntity" representedClassName="RepoQueryEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="query" optional="YES" attributeType="String"/>
+        <attribute name="sort" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RepoResponseEntity" representedClassName="RepoResponseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptions" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="language" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="owner_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="owner_image_url" optional="YES" attributeType="String"/>
+        <attribute name="owner_login" optional="YES" attributeType="String"/>
+        <attribute name="stargazersCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="reposResponse" maxCount="1" deletionRule="Nullify" destinationEntity="ReposResponseEntity" inverseName="repos" inverseEntity="ReposResponseEntity"/>
+    </entity>
+    <entity name="ReposRequestEntity" representedClassName="ReposRequestEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="page" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="q" optional="YES" attributeType="String"/>
+        <attribute name="sort" optional="YES" attributeType="String"/>
+        <relationship name="response" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ReposResponseEntity" inverseName="request" inverseEntity="ReposResponseEntity"/>
+    </entity>
+    <entity name="ReposResponseEntity" representedClassName="ReposResponseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="incompleteResults" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="totalCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="repos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RepoResponseEntity" inverseName="reposResponse" inverseEntity="RepoResponseEntity"/>
+        <relationship name="request" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ReposRequestEntity" inverseName="response" inverseEntity="ReposRequestEntity"/>
+    </entity>
+</model>
